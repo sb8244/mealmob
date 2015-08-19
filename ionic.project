@@ -1,0 +1,13 @@
+{
+  "name": "foodspace_test",
+  "app_id": "a1e07511",
+  "gulpStartupTasks": [
+    "index",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
