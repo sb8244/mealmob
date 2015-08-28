@@ -1,0 +1,43 @@
+<ion-view view-title="Recipe">
+  <ion-content class="detail-view">
+    <div class="list card">
+      <div class="item item-thumbnail-left">
+        <img ng-src="{{ ctrl.post.author.image_path }}"/>
+        <div class="text-right">
+          <h3 class="heading">{{ ctrl.post.title }}</h3>
+          <h2>{{ ctrl.post.author.name }}</h2>
+          <p>{{ctrl.post.getRelativeUpdatedAt()}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item item-image" ui-sref="detail({id: ctrl.post.id})">
+        <img ng-src="{{ctrl.post.main_image_path}}">
+      </div>
+    </div>
+
+    <div class="list card">
+      <h3 class="item item-divider item-assertive">Ingredients</h3>
+
+      <div class="ingredient-wrapper" ng-repeat="(name, ingredients) in ctrl.post.ingredients">
+        <h3 class="item item-divider" ng-show="name !== 'main'">{{ name }}</h3>
+        <div class="item">
+          <p ng-repeat="ingredient in ingredients">
+            {{ ingredient.getQuantity() }} <strong>{{ ingredient.name }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item item-divider item-assertive">Preparation</div>
+
+      <div class="item recipe-wrapper" ng-repeat="(name, recipe) in ctrl.post.recipes">
+        <h3 ng-show="name !== 'main'">{{ name }}</h3>
+        <h3 ng-show="name === 'main'">Main Recipe</h3>
+        <p class="recipe-text">{{ recipe }}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

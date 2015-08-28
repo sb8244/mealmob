@@ -1,0 +1,27 @@
+<div class="list card summary-card">
+  <div class="item item-avatar">
+    <img ng-src="{{ ctrl.post.author.image_path }}"/>
+    <h2 ui-sref="detail({id: ctrl.post.id})">{{ ctrl.post.title }}</h2>
+    <p>{{ ctrl.post.author.name }}</p>
+    <i class="icon ion-android-favorite" ng-show="ctrl.post.liked" ng-click="ctrl.post.like()"></i>
+    <i class="icon ion-android-favorite-outline" ng-hide="ctrl.post.liked" ng-click="ctrl.post.like()"></i>
+  </div>
+
+  <div class="item item-image" ui-sref="detail({id: ctrl.post.id})">
+    <img ng-src="{{ctrl.post.main_image_path}}">
+  </div>
+
+  <div class="item row summary-footer">
+    <div class="col col-33">
+      <i class="icon ion-android-time"></i>
+      <small>1h 0m</small>
+    </div>
+    <div class="col col-33 text-center">
+      <i class="icon ion-pricetag"></i>
+      <small>$5 cps</small>
+    </div>
+    <div class="col col-33">
+      <small class="badge badge-assertive">{{ ctrl.post.formatFlavorProfile() }}</small>
+    </div>
+  </div>
+</div>

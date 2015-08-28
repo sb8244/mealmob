@@ -3,7 +3,11 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('foodspace', ['ionic', 'mobile-angular-ui.core.capture'])
+angular.module('foodspace', [
+  'ionic',
+  'mobile-angular-ui.core.capture',
+  'ionic-toast'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,11 +24,22 @@ angular.module('foodspace', ['ionic', 'mobile-angular-ui.core.capture'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('index', {
+    .state('feed', {
       url: '/',
       templateUrl: 'templates/index.html',
       controller: 'IndexController as ctrl'
-    });
+    })
+    .state('detail', {
+      url: '/detail/:id',
+      templateUrl: 'templates/detail.html',
+      controller: 'DetailController as ctrl',
+      resolve: {
+        post: function($stateParams, Post) {
+          return Post.find($stateParams.id);
+        }
+      }
+    })
+  ;
 
   $urlRouterProvider.otherwise('/');
 });
