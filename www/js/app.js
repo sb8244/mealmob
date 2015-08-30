@@ -9,41 +9,42 @@ angular.module('foodspace', [
   'ionic-toast'
 ])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-    .state('feed', {
-      url: '/',
-      templateUrl: 'templates/index.html',
-      controller: 'IndexController as ctrl'
-    })
-    .state('detail', {
-      url: '/detail/:id',
-      templateUrl: 'templates/detail.html',
-      controller: 'DetailController as ctrl',
-      resolve: {
-        post: function($stateParams, Post) {
-          return Post.find($stateParams.id);
-        }
+  .run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
       }
-    })
-  ;
+      if(window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
+  })
 
-  $urlRouterProvider.otherwise('/');
-}).
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('feed', {
+        url: '/',
+        templateUrl: 'templates/index.html',
+        controller: 'IndexController as ctrl'
+      })
+      .state('detail', {
+        url: '/detail/:id',
+        templateUrl: 'templates/detail.html',
+        controller: 'DetailController as ctrl',
+        resolve: {
+          post: function($stateParams, Post) {
+            return Post.find($stateParams.id);
+          }
+        }
+      })
+    ;
 
-config(function($ionicConfigProvider) {
-  $ionicConfigProvider.tabs.position("top");
-});
+    $urlRouterProvider.otherwise('/');
+  }).
+
+  config(function($ionicConfigProvider) {
+    $ionicConfigProvider.tabs.position("top");
+  });
