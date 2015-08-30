@@ -42,4 +42,8 @@ angular.module('foodspace', [
   ;
 
   $urlRouterProvider.otherwise('/');
+}).
+
+config(function($ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position("top");
 });

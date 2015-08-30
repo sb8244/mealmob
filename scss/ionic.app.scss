@@ -24,6 +24,8 @@ $assertive: #E74C3C !default;
 @import "www/lib/ionic/scss/ionic";
 
 .summary-card {
+  margin-bottom: 20px !important; // Ionic puts extra margin on last card in a list
+
   .item-avatar {
     i {
       position: absolute;

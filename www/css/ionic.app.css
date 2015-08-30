@@ -7700,16 +7700,18 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.summary-card .item-avatar i {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 32px; }
-.summary-card .summary-footer .badge {
-  float: right;
-  position: relative;
-  top: auto;
-  right: auto; }
+.summary-card {
+  margin-bottom: 20px !important; }
+  .summary-card .item-avatar i {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 32px; }
+  .summary-card .summary-footer .badge {
+    float: right;
+    position: relative;
+    top: auto;
+    right: auto; }
 
 .star-wrapper .icon {
   font-size: 1.5em; }
