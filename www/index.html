@@ -24,6 +24,7 @@
     <script src="js/controllers/header.js"></script>
     <script src="js/controllers/index.js"></script>
     <script src="js/directives/summary_card.js"></script>
+    <script src="js/models/comment.js"></script>
     <script src="js/models/ingredient.js"></script>
     <script src="js/models/post.js"></script>
     <script src="js/services/capture.js"></script>
@@ -40,6 +41,10 @@
               <button class="button icon ion-navicon" ng-click="ctrl.toggleMenu()"></button>
             </ion-nav-buttons>
 
+            <ion-nav-back-button class="button-clear">
+              <i class="icon ion-ios-arrow-back"></i> Back
+            </ion-nav-back-button>
+
             <ion-nav-title></ion-nav-title>
           </ion-nav-bar>
 
@@ -54,7 +59,7 @@
 
           <ion-content>
             <div class="list">
-              <a class="item" ui-sref="feed" menu-close="">Your Recipe Feed</a>
+              <a class="item" ui-sref="feed" menu-close="">Recipe Feed</a>
             </div>
           </ion-content>
         </ion-side-menu>

@@ -7724,3 +7724,8 @@ a.button {
   white-space: pre-line;
   text-overflow: initial;
   overflow: auto; }
+
+.item p {
+  white-space: pre-line;
+  text-overflow: initial;
+  overflow: auto; }

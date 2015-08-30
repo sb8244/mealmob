@@ -31,10 +31,33 @@
       </ion-pane>
     </ion-tab>
 
-    <ion-tab title="Discuss">
+    <ion-tab title="Discuss ({{ ctrl.comments.length }})">
       <ion-pane>
         <ion-content class="has-tabs-top">
+          <div class="list">
+            <div class="card" ng-repeat="comment in ctrl.comments | orderBy:updated_at">
+              <div class="item item-avatar">
+                <img ng-src="{{ comment.author.image_path }}"/>
+                <p>{{ comment.content }}</p>
+                <p>{{ comment.author.name }} | {{comment.getRelativeUpdatedAt()}}</p>
+              </div>
+            </div>
 
+            <div class="card">
+              <div class="item">
+                <p class="text-center">Join the Discussion</p>
+              </div>
+              <div class="list list-inset">
+                <form ng-submit="ctrl.createComment()">
+                  <label class="item item-input">
+                    <textarea placeholder="Comments" ng-model="ctrl.newCommentData.content"></textarea>
+                  </label>
+
+                  <button class="button button-block button-positive">Submit Comment</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </ion-content>
       </ion-pane>
     </ion-tab>
