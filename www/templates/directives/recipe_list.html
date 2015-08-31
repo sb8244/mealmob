@@ -1,0 +1,20 @@
+<div class="recipe-wrapper" ng-repeat="(name, recipeSteps) in ctrl.post.recipes">
+  <div class="item item-toggle">
+    <h3 class="assertive no-margin" ng-show="name !== 'main'">{{ name }}</h3>
+    <h3 class="assertive no-margin" ng-show="name === 'main'">Main Recipe</h3>
+
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="ctrl.completedStepGroups[recipeSteps]" ng-change="ctrl.allCompleteToggle(recipeSteps)">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </div>
+
+  <div class="recipe-text item item-checkbox" ng-repeat="step in recipeSteps">
+    <label class="checkbox">
+      <input type="checkbox" ng-model="ctrl.completedSteps[step]" ng-change="ctrl.checkForAllStepsChecked(recipeSteps)">
+    </label>
+    {{ step }}
+  </div>
+</div>

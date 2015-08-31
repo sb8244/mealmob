@@ -1,0 +1,13 @@
+<div class="list card">
+  <h3 class="item item-divider item-assertive">Ingredients</h3>
+
+  <div class="ingredient-wrapper" ng-repeat="(name, ingredients) in ctrl.post.ingredients">
+    <h3 class="item item-divider" ng-show="name !== 'main'">{{ name }}</h3>
+    <div class="item">
+      <p class="clearfix" ng-repeat="ingredient in ingredients">
+        <span class="pull-left"><strong>{{ ingredient.name }}</strong></span>
+        <span class="pull-right">{{ ingredient.getQuantity() || '-' }}</span>
+      </p>
+    </div>
+  </div>
+</div>

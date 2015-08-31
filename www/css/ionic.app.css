@@ -15,6 +15,15 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.no-margin {
+  margin: 0 !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7720,12 +7729,7 @@ a.button {
   text-align: right;
   font-size: 1.3em; }
 
-.recipe-wrapper .recipe-text {
-  white-space: pre-line;
+.item p, .recipe-wrapper .recipe-text {
+  white-space: initial;
   text-overflow: initial;
-  overflow: auto; }
-
-.item p {
-  white-space: pre-line;
-  text-overflow: initial;
-  overflow: auto; }
+  overflow: initial; }

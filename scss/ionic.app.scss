@@ -20,6 +20,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 $stable: #ECF0F1 !default;
 $assertive: #E74C3C !default;
 
+.pull-left { float: left; }
+.pull-right { float: right; }
+.no-margin { margin: 0 !important; }
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
@@ -58,16 +62,9 @@ $assertive: #E74C3C !default;
   }
 }
 
-.recipe-wrapper {
-  .recipe-text {
-    white-space: pre-line;
-    text-overflow: initial;
-    overflow: auto;
-  }
-}
-
-.item p {
-  white-space: pre-line;
+.item p,
+.recipe-wrapper .recipe-text {
+  white-space: initial;
   text-overflow: initial;
-  overflow: auto;
+  overflow: initial;
 }
