@@ -1,0 +1,18 @@
+<ion-view cache-view="false" view-title="Share a Meal">
+  <ion-tabs class="tabs-light tabs-background-assertive tabs-color-light tabs-striped ">
+    <ion-tab title="Recipe <i class='icon ion-alert-circled header-icon {{ctrl.valid ? 'hidden' : ''}}'></i>">
+      <ion-pane>
+        <ion-content class="has-tabs-top">
+          <share-meal-recipe valid="ctrl.valid" post="post"></share-meal-recipe>
+        </ion-content>
+      </ion-pane>
+    </ion-tab>
+
+    <ion-tab title="Info & Pictures">
+      <ion-pane>
+        <ion-content class="has-tabs-top">
+        </ion-content>
+      </ion-pane>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>

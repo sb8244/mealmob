@@ -5,13 +5,7 @@ angular.module("foodspace").factory("Ingredient", function($q) {
 
   Ingredient.prototype = {
     getQuantity: function() {
-      var str = (this.quantity || "");
-
-      if (this.unit && this.unit !== "units") {
-        str += " " + this.unit;
-      }
-
-      return str;
+      return this.quantity.display + " " + this.units;
     }
   };
 

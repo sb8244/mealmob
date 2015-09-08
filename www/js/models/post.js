@@ -32,21 +32,22 @@ angular.module("foodspace").factory("Post", function($q, Ingredient) {
         name: "@gordongram",
         image_path: "img/gordon.jpg"
       },
+      difficulty: "hard",
       updated_at: (new Date()).setDate(0),
       ingredients: {
         main: [
-          { name: "All-purpose Flour", quantity: 1.25, unit: "cups" },
-          { name: "Sugar", quantity: 1.5, unit: "cups" },
-          { name: "Salt" },
-          { name: "Butter, cold diced", quantity: 6, unit: "tablespoons" },
-          { name: "Egg Whites", quantity: 4, unit: "units" },
-          { name: "Cream of Tartar", quantity: 0.25, unit: "teaspoons" }
+          { name: "All-purpose Flour", quantity: {main: 1, top: 2, bottom: 8, display: "1 1/4"}, units: "cups" },
+          { name: "Sugar", quantity: { main: 1, top: 4, bottom: 8, display: "1 1/2" }, units: "cups" },
+          { name: "Salt" , quantity: { main: 1, top: 0, bottom: 8, display: "1" }, units: "pinch" },
+          { name: "Butter, cold diced", quantity: { main: 6, top: 0, bottom: 8, display: "8" }, units: "tablespoons" },
+          { name: "Egg Whites", quantity: { main: 4, top: 0, bottom: 8, display: "4" }, units: "units" },
+          { name: "Cream of Tartar", quantity: { main: 0, top: 2, bottom: 8, display: "1/4"}, units: "teaspoons" }
         ],
       "Lemon Filling": [
-          { name: "Unsalted Butter", quantity: 8, unit: "tablespoons" },
-          { name: "Sugar", quantity: 1.5, unit: "cups" },
-          { name: "Eggs", quantity: 4, unit: "units" },
-          { name: "Lemon Zest", quantity: 0.5, unit: "cups" }
+          { name: "Unsalted Butter", quantity: { main: 8, top: 0, bottom: 8, display: "8" }, units: "tablespoons" },
+          { name: "Sugar", quantity: { main: 1, top: 4, bottom: 8, display: "1 1/2" }, units: "cups" },
+          { name: "Eggs", quantity: { main: 4, top: 0, bottom: 8, display: "8" }, units: "units" },
+          { name: "Lemon Zest", quantity: { main: 0, top: 4, bottom: 8, display: "1/2" }, units: "cups" }
         ]
       },
       recipes: {
@@ -82,6 +83,7 @@ angular.module("foodspace").factory("Post", function($q, Ingredient) {
       title: "Grilled Cheese & Bacon",
       main_image_path: "img/sandwich.jpg",
       liked: true,
+      difficulty: "easy",
       flavor_profile: ["salty", "umami"],
       author: {
         name: "@vulgarchef",

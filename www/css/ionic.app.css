@@ -7733,3 +7733,15 @@ a.button {
   white-space: initial;
   text-overflow: initial;
   overflow: initial; }
+
+.header-icon {
+  display: inline !important;
+  font-size: 1em !important; }
+  .header-icon.hidden {
+    display: none !important; }
+
+.side-menu .icon {
+  font-size: 1.5em;
+  position: relative;
+  top: 4px;
+  padding-right: 0.5em; }

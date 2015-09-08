@@ -1,8 +1,8 @@
-<ion-view cache-view="false" view-title="Recipe Details">
+<ion-view cache-view="false" view-title="Meal Details">
   <ion-tabs class="tabs-light tabs-background-assertive tabs-color-light tabs-striped ">
     <ion-tab title="Overview">
       <ion-pane>
-        <ion-content class="has-tabs-top">
+        <ion-content>
           <summary-card post="ctrl.post"></summary-card>
           <ingredient-list post="ctrl.post"></ingredient-list>
         </ion-content>
@@ -19,7 +19,7 @@
 
     <ion-tab title="Discuss ({{ ctrl.comments.length }})">
       <ion-pane>
-        <ion-content class="has-tabs-top">
+        <ion-content>
           <comment-list comments="ctrl.comments" />
         </ion-content>
       </ion-pane>

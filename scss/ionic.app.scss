@@ -68,3 +68,21 @@ $assertive: #E74C3C !default;
   text-overflow: initial;
   overflow: initial;
 }
+
+.header-icon {
+  display: inline !important;
+  font-size: 1em !important;
+
+  &.hidden {
+    display: none !important;
+  }
+}
+
+.side-menu {
+  .icon {
+    font-size: 1.5em;
+    position: relative;
+    top: 4px;
+    padding-right: 0.5em;
+  }
+}

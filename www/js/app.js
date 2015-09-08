@@ -40,6 +40,11 @@ angular.module('foodspace', [
           }
         }
       })
+      .state('new', {
+        url: '/new',
+        templateUrl: 'templates/new.html',
+        controller: 'NewController as ctrl'
+      })
     ;
 
     $urlRouterProvider.otherwise('/');

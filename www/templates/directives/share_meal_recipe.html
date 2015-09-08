@@ -1,0 +1,122 @@
+<div class="share-meal-recipe">
+  <div class="card">
+    <div class="item item-divider item-assertive">
+      Dishes
+    </div>
+
+    <div class="item item-text-wrap">
+      <div>What dishes make up your meal?</div>
+      <small>(ie. grilled pork chop, mashed potatoes, broccoli)</small>
+    </div>
+
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-fork placeholder-icon"></i>
+        <input ng-model="ctrl.newDishName" type="text" placeholder="Dish">
+      </label>
+      <button class="button button-clear" ng-click="ctrl.addDish()">
+        Add
+      </button>
+    </div>
+
+    <div class="item item-text-wrap item-icon-right" ng-repeat="dish in ctrl.post.dishes">
+      <i class="icon ion-ios-minus assertive" ng-click="ctrl.removeDish(dish)"></i>
+      {{ dish }}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="item item-divider item-assertive">
+      Ingredients
+    </div>
+
+    <div class="item item-text-wrap">
+      <div>Which ingredients make your dishes tasty?</div>
+      <small>(ie. pork chop, butter, pepper)</small>
+    </div>
+
+    <div class="dish-wrapper" ng-repeat="dish in ctrl.post.dishes">
+      <div class="item item-stable item-icon-right">
+        <i class="icon ion-plus-circled" ng-hide="ctrl.newIngredients[dish]" ng-click="ctrl.newIngredient(dish)"></i>
+        <i class="icon ion-minus-circled" ng-show="ctrl.newIngredients[dish]" ng-click="ctrl.newIngredients[dish] = undefined"></i>
+        {{ dish }}
+      </div>
+
+      <form class="item" ng-show="ctrl.newIngredients[dish]" ng-submit="ctrl.addIngredient(dish)" name="newIngredientForm">
+        <label class="item item-input">
+          <i class="icon ion-fork placeholder-icon"></i>
+          <input type="text" placeholder="Ingredient" ng-model="ctrl.newIngredients[dish].name" required="required">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Quantity
+          </div>
+
+          <ranged-select min="0" max="16" step-max="8" selected="ctrl.newIngredients[dish].quantity"></ranged-select>
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Unit
+          </div>
+
+          <select ng-model="ctrl.newIngredients[dish].units" ng-options="unit for unit in ctrl.units"></select>
+        </label>
+
+        <button ng-disabled="newIngredientForm.$invalid" ng-class="{ 'button-outline': newIngredientForm.$invalid }"
+                class="button button-positive button-block">Add Ingredient</button>
+      </form>
+
+      <div class="item" ng-show="!ctrl.post.ingredients[dish] && !ctrl.newIngredients[dish]">
+        <small>No ingredients. Add one above</small>
+      </div>
+
+      <div class="item" ng-repeat="ingredient in ctrl.post.ingredients[dish]">
+        <span class="pull-left">
+          {{ ingredient.name }}
+        </span>
+        <span class="pull-right">
+          {{ ingredient.quantity.display }} {{ ingredient.units }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="item item-divider item-assertive">
+      Recipe
+    </div>
+
+    <div class="item item-text-wrap">
+      <div>How is the meal prepared?</div>
+    </div>
+
+    <div class="dish-wrapper" ng-repeat="dish in ctrl.post.dishes">
+      <div class="item item-stable">
+        {{ dish }}
+      </div>
+
+      <div class="item item-icon-left" ng-repeat="step in ctrl.post.steps[dish]">
+        <i class="icon ion-ios-minus-outline assertive" ng-click="ctrl.removeStep(dish, $index)"></i>
+        <p>{{ step.content }}</p>
+      </div>
+
+      <form class="item" name="newStepForm" ng-submit="ctrl.addStep(dish)" ng-init="ctrl.newSteps[dish] = {}">
+        <label class="item item-input">
+          <textarea ng-model="ctrl.newSteps[dish].content" placeholder="Write out the next step" required="required"></textarea>
+        </label>
+
+        <button ng-disabled="newStepForm.$invalid" ng-class="{'button-outline': newStepForm.$invalid}"
+                class="button button-block button-positive">Add Step</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card" ng-show="ctrl.validationErrors().length">
+    <div class="item item-text-wrap item-icon-left" ng-repeat="error in ctrl.validationErrors()">
+      <i class="icon ion-alert-circled"></i>
+      {{error}}
+    </div>
+  </div>
+</div>

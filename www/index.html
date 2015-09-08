@@ -23,14 +23,17 @@
     <script src="js/controllers/detail.js"></script>
     <script src="js/controllers/header.js"></script>
     <script src="js/controllers/index.js"></script>
+    <script src="js/controllers/new.js"></script>
     <script src="js/models/comment.js"></script>
     <script src="js/models/ingredient.js"></script>
     <script src="js/models/post.js"></script>
-    <script src="js/services/capture.js"></script>
     <script src="js/directives/comment_list.js"></script>
     <script src="js/directives/ingredient_list.js"></script>
+    <script src="js/directives/ranged_select.js"></script>
     <script src="js/directives/recipe_list.js"></script>
+    <script src="js/directives/share_meal_recipe.js"></script>
     <script src="js/directives/summary_card.js"></script>
+    <script src="js/services/capture.js"></script>
     <!-- endinject -->
   </head>
   <body ng-app="foodspace">
@@ -53,13 +56,24 @@
         <!-- Left Side Bar -->
         <ion-side-menu side="right">
           <ion-header-bar class="bar-light">
-            <h1 class="title">RecipeMob</h1>
+            <h1 class="title">MealMob</h1>
           </ion-header-bar>
 
           <ion-content>
-            <div class="list">
-              <a class="item" ui-sref="feed" menu-close="">Recipe Feed</a>
-            </div>
+            <ion-list class="side-menu">
+              <ion-item nav-clear="" menu-close="" ui-sref="feed">
+                <i class="icon ion-ios-list-outline"></i>
+                The Feed
+              </ion-item>
+              <ion-item nav-clear="" menu-close="" ui-sref="new">
+                <i class="icon ion-ios-compose-outline"></i>
+                Write a Recipe
+              </ion-item>
+              <ion-item nav-clear="" menu-close="">
+                <i class="icon ion-android-favorite-outline"></i>
+                Favorites
+              </ion-item>
+            </ion-list>
           </ion-content>
         </ion-side-menu>
       </ion-side-menus>
