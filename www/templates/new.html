@@ -1,18 +1,53 @@
 <ion-view cache-view="false" view-title="Share a Meal">
   <ion-tabs class="tabs-light tabs-background-assertive tabs-color-light tabs-striped ">
-    <ion-tab title="Recipe <i class='icon ion-alert-circled header-icon {{ctrl.valid ? 'hidden' : ''}}'></i>">
+
+    <ion-tab title="Info & Picture <i class='icon ion-alert-circled header-icon {{ctrl.infoValid ? 'hidden' : ''}}'></i>">
       <ion-pane>
         <ion-content class="has-tabs-top">
-          <share-meal-recipe valid="ctrl.valid" post="post"></share-meal-recipe>
+          <form name="form">
+            <div class="list card">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Meal Title</span>
+                <input type="text" placeholder="Delicious Seafood Risotto" required ng-model="ctrl.post.title">
+              </label>
+            </div>
+
+            <picture-selector post="ctrl.post"></picture-selector>
+
+            <div class="list card">
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Time to Prepare
+                </div>
+                <select ng-options="option for option in ctrl.preparationOptions" required ng-model="ctrl.post.time_to_prepare"></select>
+              </label>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Cost per Person
+                </div>
+                <select ng-options="option for option in ctrl.costOptions" required ng-model="ctrl.post.cost_per_person"></select>
+              </label>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Difficulty
+                </div>
+                <select ng-options="option for option in ctrl.difficultyOptions" required ng-model="ctrl.post.difficulty"></select>
+              </label>
+            </div>
+          </form>
         </ion-content>
       </ion-pane>
     </ion-tab>
 
-    <ion-tab title="Info & Pictures">
+    <ion-tab title="Recipe <i class='icon ion-alert-circled header-icon {{ctrl.recipeValid ? 'hidden' : ''}}'></i>">
       <ion-pane>
         <ion-content class="has-tabs-top">
+          <share-meal-recipe valid="ctrl.recipeValid" post="ctrl.post"></share-meal-recipe>
         </ion-content>
       </ion-pane>
     </ion-tab>
+
   </ion-tabs>
 </ion-view>

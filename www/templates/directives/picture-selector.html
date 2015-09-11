@@ -1,0 +1,11 @@
+<div class="list card picture-selector">
+  <div class="item item-image">
+    <img ng-if="ctrl.imgSrc" ng-src="{{ctrl.imgSrc}}" />
+
+    <div class="text-center select-image" ng-if="!ctrl.imgSrc">
+      <button class="button button-outline button-positive button-block" ng-click="ctrl.showOptions()">
+        Select Image
+      </button>
+    </div>
+  </div>
+</div>

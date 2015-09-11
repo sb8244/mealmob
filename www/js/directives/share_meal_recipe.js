@@ -8,11 +8,13 @@
     controller: function($scope) {
       var self = this;
 
-      $scope.post = self.post = {
+      self.post = $scope.post;
+
+      _.extend(self.post, {
         dishes: [],
         ingredients: {},
         steps: {}
-      };
+      });
 
       self.newDishName = "";
       self.newIngredients = {};

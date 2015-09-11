@@ -7745,3 +7745,6 @@ a.button {
   position: relative;
   top: 4px;
   padding-right: 0.5em; }
+
+.picture-selector .select-image {
+  padding: 10px 20px; }

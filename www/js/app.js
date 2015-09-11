@@ -6,7 +6,8 @@
 angular.module('foodspace', [
   'ionic',
   'mobile-angular-ui.core.capture',
-  'ionic-toast'
+  'ionic-toast',
+  'ngCordova'
 ])
 
   .run(function($ionicPlatform) {
